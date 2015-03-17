@@ -13,6 +13,18 @@
     <script type="text/javascript" src="javascripts/csv.js"></script>
 
     <title>CSV Analyzer</title>
+
+    <script type="text/html" id="Template">
+        <table class="center" id="result">
+            <% _.each(rows, function(row) { %>
+                    <%=row.color%>
+                    <% _.each(row.row, function(name) { %>
+                    <td><%= name %></td>
+                    <% }); %>
+                </tr>
+            <% }); %>
+        </table>
+    </script>
   </head>
 
   <body>
