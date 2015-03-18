@@ -16,13 +16,15 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
        {pattern: 'test/mocha.css', included: true, served: true},
+       'javascripts/underscore-min.js',
+       'javascripts/jquery.min.js',
+       'index.html',
+       'javascripts/csv.js',
+       'test/index.html',
        'test/chai.js',
        'test/mocha.js',
-       'index.html',
-       'test/index.html',
        'test-main.js',
-       'test/*.js',
-       'javascripts/csv.js'
+       'test/*.js'
     ],
 
     client: {

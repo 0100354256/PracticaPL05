@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../stylesheets/global.css" type="text/css">
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="../javascripts/csv.js"></script>
 
     <script type="text/html" id="Template">
@@ -26,7 +26,7 @@
   <body>
     <div id="mocha"></div>
 
-    <h1>CSV Analyzer [Ajax]</h3> </br>
+    <h1>CSV Analyzer [Ajax]</h1> </br>
     <table>
       <tr>
         <th>CSV string:</th> <!-- autofocus attribute is HTML5 -->
@@ -39,7 +39,7 @@
     <script src="chai.js"></script>
     <script src="mocha.js"></script>
     <script src="../blanket.min.js"
-          data-cover-adapter="../mocha-blanket.js"></script>
+          data-cover-adapter="../mocha-blanket.js" data-cover-flags="debug"></script>
     <script src="../javascripts/csv.js" data-cover></script>
 
     <script>mocha.setup('tdd')</script>
