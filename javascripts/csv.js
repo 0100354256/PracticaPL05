@@ -1,3 +1,6 @@
+if(typeof exports == 'undefined'){
+    var exports = this['mymodule'] = {};
+}
 exports.button = function(cadena) {
   var original = cadena.original;
   var regexp = /\s*"((?:[^"\\]|\\.)*)"\s*,?|\s*([^,]+),?|\s*,/g;
