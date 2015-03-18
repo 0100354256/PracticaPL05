@@ -1,36 +1,18 @@
-// See http://en.wikipedia.org/wiki/Comma-separated_values
-"use strict"; // Use ECMAScript 5 strict mode in browsers that support it
-
-$(document).ready(function() {
-   $("button").click(function() {
-     calculate();
-   });
- });
-
-function calculate() {
-  var result;
-  var original = document.getElementById("original");
-  var temp = original.value;
+exports.button = function(cadena) {
+  var original = cadena.original;
   var regexp = /\s*"((?:[^"\\]|\\.)*)"\s*,?|\s*([^,]+),?|\s*,/g;
-  var lines = temp.split(/\n+\s*/);
+  var lines = original.split(/\n+\s*/);
   var commonLength = NaN;
-  var rows = [];
-  var row;
 
-  // Template using underscore
-  var template = document.getElementById("Template").innerHTML;
+  var html = '';
 
-  if (window.localStorage) localStorage.original  = temp;
-
-  for(var t in lines) {
-    var temp = lines[t];
-    var m = temp.match(regexp);
-    var result = [];
+  for (var i in lines) {
+    var m = lines[i].match (regexp);
+    var rows = []; //treated row
     var error = false;
-    
+
     if (m) {
       if (commonLength && (commonLength != m.length)) {
-        //alert('ERROR! row <'+temp+'> has '+m.length+' items!');
         error = true;
       }
       else {
@@ -38,31 +20,32 @@ function calculate() {
         error = false;
       }
 
-      for(var i in m) {
-        var removecomma = m[i].replace(/,\s*$/,'');
-        var remove1stquote = removecomma.replace(/^\s*"/,'');
-        var removelastquote = remove1stquote.replace(/"\s*$/,'');
-        var removeescapedquotes = removelastquote.replace(/\\"/,'"');
-        result.push(removeescapedquotes);
+      for (var j in m) {
+        var value = m[j].replace(/,\s*$/,'');
+
+        value = value.replace(/^\s*"/,'');
+        value = value.replace(/"\s*$/,'');
+        value = value.replace(/\\"/,'"');
+
+        rows.push (value);
       }
 
-      row = new Object();
-      row.color = error ? '<tr class="error">' : '<tr>';
-      row.row = result;
-      rows.push(row);
+      var tr_type = error? '<tr class="error">': '<tr>';
+      var row = '';
+      rows.forEach(function(td, index) {
+        row = row + '<td>' + td + '</td>'; 
+      });
+
+      html = html + tr_type + row + '</tr>';
     }
-    else {
-      alert('ERROR! row '+temp +' does not look as legal CSV');
+    else{
+      alert('ERROR! ilegal CSV');
       error = true;
     }
   }
 
-  finaltable.innerHTML = _.template(template, { rows: rows });
-}
+  html = '<table>' + html + '</table>';
+  console.log (html);
 
-window.onload = function() {
-  // If the browser supports localStorage and we have some stored data
-  if (window.localStorage && localStorage.original) {
-    document.getElementById("original").value = localStorage.original;
-  }
+  return html;
 };
