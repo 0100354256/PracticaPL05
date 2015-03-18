@@ -14,7 +14,7 @@ suite('CSV', function() {
      original.value = 'Local Storage Test';
      $.get("/csv", {original: original.value}, function(data) {
         $("#finaltable").html(data);
-     }
+     });
 
      assert.deepEqual(localStorage.original, 'Local Storage Test');
    });
