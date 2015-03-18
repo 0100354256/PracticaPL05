@@ -20,7 +20,7 @@ module.exports = function(config) {
        'javascripts/jquery.min.js',
        'index.html',
        'javascripts/csv.js',
-       'test/index.html',
+       'test/test_index.html',
        'test/chai.js',
        'test/mocha.js',
        'test-main.js',
@@ -42,7 +42,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'index.html': ['html2js'],
-      'test/index.html': ['html2js']
+      'test/test_index.html': ['html2js']
     },
 
 

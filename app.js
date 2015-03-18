@@ -20,6 +20,12 @@ app.get('/', function (req, res) {
   res.render('index', { title: 'CSV' });
 })
 
+app.use(express.static(__dirname + '/test'));
+
+app.get('/test', function (req, res) {
+  res.render('test_index', { title: 'Tests' });
+})
+
 app.get('/csv', function (req, res) {
   res.send(csv.button(req.query));
 });

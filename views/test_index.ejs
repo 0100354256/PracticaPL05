@@ -1,0 +1,23 @@
+<div id="mocha"></div>
+
+    <h1>CSV Analyzer [Ajax]</h1> </br>
+    <table>
+      <tr>
+        <th>CSV string:</th> <!-- autofocus attribute is HTML5 -->
+        <td><textarea autofocus cols = "80" rows = "5" id="original"></textarea></td> 
+      </tr>
+    </table>
+    <button type="button">table:</button><br>
+    <span class="output" id="finaltable"></span>  
+
+    <script src="chai.js"></script>
+    <script src="mocha.js"></script>
+    <script src="blanket.min.js"
+          data-cover-adapter="mocha-blanket.js" data-cover-flags="debug"></script>
+    <script src="csv.js" data-cover></script>
+
+    <script>mocha.setup('tdd')</script>
+    <script src="tests.js"></script>
+    <script>
+      mocha.run();
+    </script>
