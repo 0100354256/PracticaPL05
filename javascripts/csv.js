@@ -1,3 +1,7 @@
+if(typeof exports == 'undefined'){
+    var exports = this['mymodule'] = {};
+}
+
 exports.button = function(cadena) {
   var original = cadena.original;
   console.log(original);
