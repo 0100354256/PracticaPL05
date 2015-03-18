@@ -30,7 +30,7 @@ gulp.task('test', function() {
   // Be sure to return the stream
   return gulp.src([])
     .pipe(karma({
-      configFile: 'conf.js',
+      configFile: 'public/conf.js',
       action: 'run'
     }))
     .on('error', function(err) {
