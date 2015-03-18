@@ -2,7 +2,7 @@
   "name": "PracticaPL05",
   "version": "1.0.0",
   "description": "CSV [Ajax]",
-  "main": "csv.js",
+  "main": "/javascript/csv.js",
   "directories": {
     "test": "test"
   },
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/0100354256/PracticaPL05",
   "dependencies": {
+    "jquery": "*",
     "express": "~4.12.3"
   },
   "devDependencies": {
