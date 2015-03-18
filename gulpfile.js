@@ -2,6 +2,7 @@ var gulp    = require('gulp'),
     gutil   = require('gulp-util'),
     uglify  = require('gulp-uglify'),
     concat  = require('gulp-concat');
+var shell = require('gulp-shell');
 var del     = require('del');
 var minifyHTML = require('gulp-minify-html');
 var minifyCSS  = require('gulp-minify-css');
@@ -38,10 +39,13 @@ gulp.task('test', function() {
     });
 });
 
-gulp.task('default', function() {
-  gulp.src([])
-    .pipe(karma({
-      configFile: 'conf.js',
-      action: 'watch'
-    }));
+gulp.task('default', ['server']);
+
+gulp.task('server', function () {
+  return gulp.src('').pipe(shell([ 'node-supervisor app.js' ]));
+});
+
+gulp.task('open', function() {
+  return gulp.src('').
+  pipe(shell("open https://github.com/crguezl/how-jquery-works-tutorial/tree/getallparams"));
 });
