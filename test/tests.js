@@ -11,9 +11,9 @@ suite('CSV', function() {
 //     });
 
    test('Local Storage', function () {
-     original.value='Local Storage Test';
-     console.log(original.value);
-     $.get("/csv", {original: original.value}, function(data) {
+     $("original").value('Local Storage Test');
+     console.log("----------" + $("original").value);
+     $.get("/csv", {$("original"): $("original").value}, function(data) {
         $("#finaltable").html(data);
      });
 
