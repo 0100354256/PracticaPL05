@@ -15,12 +15,12 @@ app.use(express.static(process.cwd() + '/public'));
 
 app.use(expressLayouts);
 app.use(express.static(__dirname + '/javascripts'));
+app.use(express.static(__dirname + '/test'));
+
 
 app.get('/', function (req, res) {
   res.render('index', { title: 'CSV' });
 })
-
-app.use(express.static(__dirname + '/test'));
 
 app.get('/test', function (req, res) {
   res.render('test_index', { title: 'Tests' });
