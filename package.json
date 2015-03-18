@@ -27,6 +27,10 @@
     "jquery": "*",
     "express": "~4.12.3"
   },
+"engines": {
+    "node": "0.10.x",
+    "npm": "2.1.x"
+  },
   "devDependencies": {
     "karma": "~0.12.31",
     "karma-chrome-launcher": "~0.1.7",
@@ -48,6 +52,7 @@
     "karma-html2js-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "*",
     "gulp-karma": "0.0.4",
+    "node-static": "^0.7.6",
     "karma-chai": "~0.1.0"
   }
 }
