@@ -1,4 +1,4 @@
-button = function(cadena) {
+exports.button = function(cadena) {
   var original = cadena.original;
   console.log(original);
   var regexp = /\s*"((?:[^"\\]|\\.)*)"\s*,?|\s*([^,]+),?|\s*,/g;
