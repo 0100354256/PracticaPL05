@@ -2,18 +2,18 @@ var assert = chai.assert;
 
 
 suite('CSV', function() {
-//     setup(function(){
-//       if (typeof __html__ !== 'undefined') {
-//         document.body.innerHTML = __html__['test/index.html'];
-//         original = document.getElementById('original');
-//         finaltable = document.getElementById('finaltable');
-//       }  
-//     });
+     setup(function(){
+       if (typeof __html__ !== 'undefined') {
+         document.body.innerHTML = __html__['test_index.html'];
+         original = document.getElementById('original');
+         finaltable = document.getElementById('finaltable');
+       }  
+     });
 
    test('Local Storage', function () {
-     $("original").value('Local Storage Test');
-     console.log("----------" + $("original").value);
-     $.get("/csv", {original: $("original").value}, function(data) {
+     original.value('Local Storage Test');
+     console.log("----------" + original.value);
+     $.get("/csv", {original: original.value}, function(data) {
         $("#finaltable").html(data);
      });
 
