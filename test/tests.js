@@ -4,7 +4,7 @@ var assert = chai.assert;
 suite('CSV', function() {
      setup(function(){
        if (typeof __html__ !== 'undefined') {
-         document.body.innerHTML = __html__['test_index.html'];
+         document.body.innerHTML = __html__['../test_index.html'];
          original = document.getElementById('original');
          finaltable = document.getElementById('finaltable');
        }  
@@ -12,10 +12,9 @@ suite('CSV', function() {
 
    test('Local Storage', function () {
      original.value = 'Local Storage Test';
-     console.log("----------" + original.value);
      $.get("/csv", {original: original.value}, function(data) {
         $("#finaltable").html(data);
-     });
+     }
 
      assert.deepEqual(localStorage.original, 'Local Storage Test');
    });
