@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "firefox ./test/index.html"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
