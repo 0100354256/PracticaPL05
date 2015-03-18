@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>
+    <%- title %>
+  </title>
+
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/global.css">
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      //check storage data
+      if (window.localStorage && localStorage.original) {
+        $("#original").val(localStorage.original);
+      }
+      $("#button").click(function(event) {
+        event.preventDefault();
+        $.get("/csv", {original: original.value}, function(data) {
+        $("#finaltable").html(data);
+        console.log(data);
+      });
+
+      //storage data
+      if (window.localStorage)
+        localStorage.original = $("#original").val();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- body %>
+</body>
+
+</html>
