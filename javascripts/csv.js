@@ -1,9 +1,5 @@
-if(typeof exports == 'undefined'){
-    var exports = this['mymodule'] = {};
-}
-exports.button = function(cadena) {
+button = function(cadena) {
   var original = cadena.original;
-  debug.log("+++++++++++*" + original);
   var regexp = /\s*"((?:[^"\\]|\\.)*)"\s*,?|\s*([^,]+),?|\s*,/g;
   var lines = original.split(/\n+\s*/);
   var commonLength = NaN;
