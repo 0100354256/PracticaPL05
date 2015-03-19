@@ -1,4 +1,4 @@
-if(typeof exports == 'undefined'){
+if(typeof exports == 'undefined') {
     var exports = this['mymodule'] = {};
 }
 
@@ -13,7 +13,7 @@ exports.button = function(cadena) {
 
   for (var i in lines) {
     var m = lines[i].match (regexp);
-    var rows = []; //treated row
+    var rows = [];
     var error = false;
 
     if (m) {
@@ -50,7 +50,6 @@ exports.button = function(cadena) {
   }
 
   html = '<table>' + html + '</table>';
-  console.log (html);
 
   return html;
 };
